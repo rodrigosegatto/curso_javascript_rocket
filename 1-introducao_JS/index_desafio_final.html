@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            Curso Javascript
+        </title>
+    </head>
+    <body>
+
+        <div id="app">
+            <button onclick="mostraAlerta()">Me pressione</button>
+            <button onmouseover="mostraAlertaMouseOver()">Passar o mouse</button>
+            <input onkeypress="mostraAlertaDigitacao()" />
+        </div>
+
+        <script>
+            //MANIPULANDO A DOM
+            
+            function mostraAlerta(){
+                alert("Botao Clicado");
+            }
+
+            function mostraAlertaMouseOver(){
+                alert("Você passou o mouse no botao");
+            }
+
+            function mostraAlertaDigitacao(){
+                alert("Você digitou algo");
+            }
+            
+        </script>
+    </body>
+</html> 
