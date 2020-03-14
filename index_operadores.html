@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>
+            Curso Javascript
+        </title>
+    </head>
+    <body>
+        <script>
+            //OPERADORES LÓGICOS
+            
+            var sexo = 'M', idade = 23;
+
+            //Ambas as condições verdadeiras com AND (&&)
+            if(sexo === 'M' && idade > 20){
+                console.log('OK');
+            }
+
+            var sexo_2 = 'F';
+
+            //Negando a condição (!) -- Se sexo diferente de M
+            if(sexo_2 !== 'M'){
+                console.log('OK');
+            }
+            
+            var sexo_3 = 'M';
+
+            // IF unico de uma só linha - Reduzindo código. Neste caso, retorna TRUE
+            // Se sexo igual a M masculino recebe true, caso contrário recebe false
+            var masculino = sexo_3 === 'M';
+
+            console.log(masculino);
+
+        </script>
+    </body>
+</html> 
