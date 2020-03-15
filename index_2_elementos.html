@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+            Curso Javascript
+        </title>
+    </head>
+    <body>
+        <div id="app">
+            <input id="nome" />
+        </div>
+        <script>
+            //CRIANDO ELEMENTOS
+
+            //Cria um elemento do tipo "<a>"
+            var linkElement = document.createElement('a');
+            //Insere um href (Atributo) dentro do elemento "<a>".
+            //<a href="http://rocketseat.com.br"></a>
+            linkElement.setAttribute('href','http://rocketseat.com.br');
+            
+            //Insere um Atributo "title" dentro do elemento "<a>"
+            linkElement.setAttribute('title','Site da Rocket');
+
+            //Insere um filho (Chield) com texto dentro do elemento "<a>"
+            var textElement = document.createTextNode('Acessar RocketSeat');
+            linkElement.appendChild(textElement);
+
+            //INsere elemento na dom dentro da div "app"
+            var conteinerElement = document.querySelector('#app');
+            conteinerElement.appendChild(linkElement);
+
+            //Removento elemento input filho do id "app"
+            var inputElement = document.querySelector("#nome");
+            conteinerElement.removeChild(inputElement);
+        </script>
+    </body>
+</html> 
