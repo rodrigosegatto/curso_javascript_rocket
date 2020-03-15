@@ -5,9 +5,38 @@
         </title>
     </head>
     <body>
+        <div id="app">
+            <input type="text" name="nome" id="nome" />
+            <button class="botao">Adicionar</button>
+        </div>
         <script>
             //MANIPULANDO A DOM
 
+            //querySelector permite obtermos algum objeto da DOM
+            //diferente de outras formas, ele varre as Tags de cima para baixo
+            //No exemplo, tag "div", id (#) "app", tag "input"
+            var inputElement_1 = document.querySelector('div#app input');
+
+            console.log(inputElement_1);
+
+            //Neste exemplo, o objeto específico dentro do input
+            var inputElement_2 = document.querySelector('input[name=nome');
+
+            console.log(inputElement_2);
+
+            //querySelectorAll retornara mais de um elemento
+            //Para casos, onde tivermos mais de um input e quisermos retornar todos
+
+            //Recebento o botão atrabés de sua classe
+            var btnElement_1 = document.querySelector('button.botao');
+
+            //Quando clicado chama uma function.
+            //Melhor chamar os eventos (onCLick e outros) aqui no JS
+            //Assim não suja nossa DOM
+            btnElement_1.onclick = function(){
+                var text = inputElement_1.value;
+                alert(text);
+            }
         </script>
     </body>
 </html> 
