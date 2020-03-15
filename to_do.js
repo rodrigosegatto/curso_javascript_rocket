@@ -4,11 +4,18 @@ var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
 //Relembrando: [] = Array. {} Objetos (Que podem estar dentro de arrays)
+/* Comentando, pois isto foi substituido pelo localStorage abaixo
 var to_do_list = [
     'Fazer Café',
     'Estudar Javascritp',
     'Acessar comunidade da Rocketseat'
 ];
+*/
+
+//Recupera lista do localStorage
+//Antes usa JSON.parse para converter a string JSON em valor ou objeto JavaScript
+//Ou array vazio (|| []) caso seja excluido indevidamente o localStorage (evitar erros de JS) 
+var to_do_list = JSON.parse(localStorage.getItem('list_to_do')) || [];
 
 //Função para renderizar a lista de tarefas em tela
 function renderToDo(){
@@ -52,7 +59,7 @@ function addToDo(){
 
     inputElement.value = '';
     renderToDo();
-
+    saveToStorage();
 }
 
 //deleta o item da lista na posição passada por parametro
@@ -61,6 +68,16 @@ function deleteToDo(pos){
     to_do_list.splice(pos,1);
 
     renderToDo();
+    saveToStorage();
+}
+
+//Salvar no localStorage
+//Uma funcionalidade que permite armazenar informações no browser
+//Mantém o dado gravado mesmo após fechar e abrir o navegador novamente
+//Ler: https://tableless.com.br/guia-f%C3%A1cil-sobre-usar-localstorage-com-javascript/
+function saveToStorage(){
+    //Antes converter para JSON, pois o localStorage só permite strings
+    localStorage.setItem('list_to_do',JSON.stringify(to_do_list));
 }
 
 //Neste caso, para executar a função não precisa os ()
