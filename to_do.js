@@ -15,13 +15,29 @@ function renderToDo(){
     //Remover todo o conteúdo dentro da lista <ul>
     listElement.innerHTML = '';
 
+    //Percorre array e insere os itens na lista
     for (item of to_do_list){
         //Criando Elemento e Texto do Elemento
         var itemElement = document.createElement('li');
         var itemText = document.createTextNode(item);
+        
+        //Criação do link Excluir
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href','#');
+        var linkText = document.createTextNode('Excluir');
+        
+        //Armazena em "pos" a posição do item no array
+        var pos = to_do_list.indexOf(item);
+        //Adiciona atributo no link Excluir que chamará função de deletar
+        linkElement.setAttribute('onclick','deleteToDo('+pos+')');
 
-        //Inserindo texto no <li> e <li> na lista <ul>
+        //Inserindo texto excluir dentro do <a>
+        linkElement.appendChild(linkText);
+        //Inserindo texto no <li>
         itemElement.appendChild(itemText);
+        //INserindo o <a> dentro do <li>
+        itemElement.appendChild(linkElement);
+        //INserindo <li> na lista <ul>
         listElement.appendChild(itemElement);
     }
 }
@@ -37,6 +53,14 @@ function addToDo(){
     inputElement.value = '';
     renderToDo();
 
+}
+
+//deleta o item da lista na posição passada por parametro
+function deleteToDo(pos){
+    //Slice adiciona ou remove elementos em uma posição do array
+    to_do_list.splice(pos,1);
+
+    renderToDo();
 }
 
 //Neste caso, para executar a função não precisa os ()
